@@ -3,7 +3,7 @@ const app = express();
 
 app.use(express.json());
 app.get("/", (req, res) => {
-  res.send("Hello world!");
+  res.send("hola world!");
 });
 
 app.use(express.static(__dirname + "/client/build/"));
