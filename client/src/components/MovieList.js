@@ -1,6 +1,21 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class componentName extends Component {
+  state = {
+    movielist: []
+  };
+
+  getAllMovies = () => {
+    axios.get("/api/movies").then(res => {
+      console.log(res.data);
+    });
+  };
+
+  componentDidMount = () => {
+    this.getAllMovies();
+  };
+
   render() {
     return (
       <div>

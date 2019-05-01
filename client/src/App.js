@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Router>
         <div>
-          <NavBar/>
+          <NavBar />
           <Switch>
             <Route exact path="/movies" component={MovieList} />
             <Route exact path="/movies/:movieId" component={SingleMovie} />
