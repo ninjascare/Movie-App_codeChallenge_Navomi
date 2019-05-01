@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class componentName extends Component {
+export default class SingleMovie extends Component {
   render() {
     return (
       <div>
@@ -9,5 +9,3 @@ class componentName extends Component {
     );
   }
 }
-
-export default componentName;

@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-class componentName extends Component {
+export default class movieList extends Component {
   state = {
     movielist: []
   };
 
   getAllMovies = () => {
     axios.get("/api/movies").then(res => {
-      console.log(res.data);
+      console.log("culo");
+      this.setState({
+        movielist: res.data
+      });
     });
   };
 
@@ -17,12 +20,16 @@ class componentName extends Component {
   };
 
   render() {
+    const collection = this.state.movielist.map(movie => (
+      <div key={movie._id}>
+        <img src={movie.image} alt="moviePoster" />
+      </div>
+    ));
     return (
       <div>
-        <h1>Hello from movielist</h1>
+        {collection}
+        <h1>Hi</h1>
       </div>
     );
   }
 }
-
-export default componentName;
