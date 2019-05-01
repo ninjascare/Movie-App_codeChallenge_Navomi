@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const routes = require("./routes/index");
 
 app.use(express.json());
 app.get("/", (req, res) => {
@@ -7,6 +8,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(express.static(__dirname + "/client/build/"));
+app.use("/", routes);
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/client/build/index.html");

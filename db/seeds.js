@@ -41,5 +41,6 @@ const dragon = new Movies({
 });
 
 Movies.remove({})
+  .then(() => Movies.insertMany([dead, fight, avengers, dragon]))
   .then(() => console.log("Successful Save YAY!!!!!"))
   .then(() => mongoose.connection.close());
