@@ -5,7 +5,6 @@ import HomePage from "./components/HomePage";
 import MovieList from "./components/MovieList";
 import SingleMovie from "./components/SingleMovie";
 import NavBar from "./components/NavBar";
-
 import "./App.css";
 
 function App() {
