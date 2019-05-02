@@ -1,5 +1,11 @@
+:root {
+  --gutter: 20px;
+  background-color: #61dafb;
+}
+
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -23,10 +29,58 @@
   color: #61dafb;
 }
 
+
+
+.app {
+  padding: var(--gutter) 0;
+  display: grid;
+  grid-gap: var(--gutter) 0;
+  grid-template-columns: var(--gutter) 1fr var(--gutter);
+  align-content: start;
+}
+
+.app>* {
+  grid-column: 2 / -2;
+}
+
+.app>.full {
+  grid-column: 1 / -1;
+}
+
+.hs {
+  display: grid;
+  grid-template-columns: repeat(6, calc(35% - var(--gutter) * 2));
+  grid-template-rows: minmax(150px, 1fr);
+
+  overflow-x: scroll;
+  scroll-snap-type: x proximity;
+  margin-bottom: calc(-.25 * var(--gutter));
+  background-color: dimgrey;
+}
+
+.posters {
+  height: 70vh;
+  width: 27vw;
+  padding-right: 2em;
+  border-radius: 10%;
+}
+
+.movieData {
+  padding-bottom: 20px;
+}
+
+.movieData button {
+  border-radius: 20px;
+  height: 4vh;
+  background-color: #EB584D;
+  color: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

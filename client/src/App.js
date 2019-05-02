@@ -5,6 +5,7 @@ import HomePage from "./components/HomePage";
 import MovieList from "./components/MovieList";
 import SingleMovie from "./components/SingleMovie";
 import NavBar from "./components/NavBar";
+import AddNewMovie from "./components/AddNewMovie";
 import "./App.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <div>
           <NavBar />
           <Switch>
+            <Route exact path="/movies/newMovie" component={AddNewMovie} />
             <Route exact path="/movies" component={MovieList} />
             <Route exact path="/movies/:movieId" component={SingleMovie} />
             <Route path="/" component={HomePage} />
