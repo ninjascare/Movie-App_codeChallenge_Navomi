@@ -50,8 +50,8 @@ export default class movieList extends Component {
       <div className="con">
         <h1>Movielist</h1>
         <div className="hs">{collection}</div>
-        <br/>
-        <AddNewMovie />
+        <br />
+        <AddNewMovie {...this.props} />
       </div>
     );
   }

@@ -1,100 +1,125 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 export default class AddNewMovie extends Component {
+  state = {
+    newMovie: {
+      name: "",
+      image: "",
+      rating: "",
+      releaseDate: "",
+      directors: ""
+    }
+  };
+
+  handleChange = e => {
+    console.log("name", e.target.name);
+    console.log("value", e.target.value);
+    const updatedNewMovie = { ...this.state.newMovie };
+    updatedNewMovie[e.target.name] = e.target.value;
+    this.setState({ newMovie: updatedNewMovie });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    axios.post("/api/movies", this.state.newMovie).then(res => {
+      this.props.history.go(`/movies`);
+    });
+  };
+
   render() {
     return (
       <div>
         <button
           type="button"
-          class="btn btn-primary"
+          className="btn btn-primary"
           data-toggle="modal"
           data-target="#exampleModal"
         >
           Add new Movie
         </button>
-        {/* </Link> */}
         <div
-          class="modal fade"
+          className="modal fade"
           id="exampleModal"
-          tabindex="-1"
+          tabIndex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                  Modal title
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
+                  New Movie
                 </h5>
                 <button
                   type="button"
-                  class="close"
+                  className="close"
                   data-dismiss="modal"
                   aria-label="Close"
                 >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
-                <form>
+              <div className="modal-body">
+                <form onSubmit={this.handleSubmit}>
                   <div>
-                    <label>Title:</label>
+                    <label htmlFor="name">Title:</label>
                     <input
-                      //     onChange={this.handleChange}
-                      //     value={this.state.newUser.name}
+                      onChange={this.handleChange}
+                      value={this.state.newMovie.name}
                       type="text"
                       name="name"
                     />
                   </div>
                   <div>
-                    <label>Image:</label>
+                    <label htmlFor="image">Image:</label>
                     <input
-                      //     onChange={this.handleChange}
-                      //     value={this.state.newMovie.image}
+                      onChange={this.handleChange}
+                      value={this.state.newMovie.image}
                       type="text"
                       name="image"
                     />
                   </div>
                   <div>
-                    <label>Rating:</label>
+                    <label htmlFor="rating">Rating:</label>
                     <input
-                      //     onChange={this.handleChange}
-                      //     value={this.state.newMovie.rating}
+                      onChange={this.handleChange}
+                      value={this.state.newMovie.rating}
                       type="text"
                       name="rating"
                     />
                   </div>
                   <div>
-                    <label>Release Date:</label>
+                    <label htmlFor="releaseDate">Release Date:</label>
                     <input
-                      //     onChange={this.handleChange}
-                      //     value={this.state.newMovie.releaseDate}
+                      onChange={this.handleChange}
+                      value={this.state.newMovie.releaseDate}
                       type="text"
                       name="releaseDate"
                     />
                   </div>
                   <div>
-                    <label>Directors:</label>
+                    <label htmlFor="directors">Directors:</label>
                     <input
-                      //     onChange={this.handleChange}
-                      //     value={this.state.newMovie.directors}
+                      onChange={this.handleChange}
+                      value={this.state.newMovie.directors}
                       type="text"
                       name="directors"
                     />
                   </div>
+                  <button type="submit" className="btn btn-primary">
+                    Add new Movie
+                  </button>
                 </form>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-dismiss="modal"
                 >
                   Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Save changes
                 </button>
               </div>
             </div>

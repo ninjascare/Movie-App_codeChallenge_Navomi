@@ -1,6 +1,6 @@
 :root {
   --gutter: 20px;
-  background-color: #61dafb;
+  background-color: #EB584D;
 }
 
 .App {
@@ -49,7 +49,7 @@
 
 .hs {
   display: grid;
-  grid-template-columns: repeat(6, calc(35% - var(--gutter) * 2));
+  grid-template-columns: repeat(10, calc(35% - var(--gutter) * 2));
   grid-template-rows: minmax(150px, 1fr);
 
   overflow-x: scroll;
@@ -75,6 +75,35 @@
   background-color: #EB584D;
   color: white;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1.5, 5fr);
+  grid-template-areas:
+    "header header header "
+    "posterImg posterImg info "
+    "posterImg posterImg info "
+}
+
+.header {
+  grid-area: header;
+  text-align: center;
+  color: white;
+  background: navy;
+}
+
+.posterImg {
+  grid-area: posterImg;
+  height: 70vh;
+}
+
+.info {
+  grid-area: info;
+  padding: 12px;
+  background-color: azure;
+}
+
 
 @keyframes App-logo-spin {
   from {
