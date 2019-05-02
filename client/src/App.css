@@ -55,7 +55,7 @@
   overflow-x: scroll;
   scroll-snap-type: x proximity;
   margin-bottom: calc(-.25 * var(--gutter));
-  background-color: dimgrey;
+  background-color: #EBEBEB;
 }
 
 .posters {

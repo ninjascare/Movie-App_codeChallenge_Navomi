@@ -1,13 +1,16 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-class componentName extends Component {
+export default class HomePage extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome to the Movie</h1>
+        <h1>Welcome to the movie generator!</h1>
+        <h3>Press Go to continue</h3>
+        <Link to="/movies">
+          <button className="btn btn-success">Go!</button>
+        </Link>
       </div>
     );
   }
 }
-
-export default componentName;

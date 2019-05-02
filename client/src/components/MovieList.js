@@ -48,7 +48,7 @@ export default class movieList extends Component {
 
     return (
       <div className="con">
-        <h1>Movielist</h1>
+        <h1 style={{ color: "#2A70B8", backgroundColor: "#EBEBEB" }}>Movielist</h1>
         <div className="hs">{collection}</div>
         <br />
         <AddNewMovie {...this.props} />

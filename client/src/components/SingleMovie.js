@@ -30,7 +30,7 @@ export default class SingleMovie extends Component {
   }
   render() {
     return (
-      <div className="container">
+      <div className="container" style={{ backgroundColor: "#EBEBEB" }}>
         <h1 className="header">{this.state.movielist.name}</h1>
 
         <img
@@ -49,7 +49,11 @@ export default class SingleMovie extends Component {
           <h3>{this.state.movielist.directors}</h3>
           <hr />
           <button onClick={this.handleClick} className="commentButtonStyle">
-            {this.state.showUpdateForm ? "Cancel" : "Edit Movie"}
+            {this.state.showUpdateForm ? (
+              <button className="btn btn-danger">Cancel</button>
+            ) : (
+              <button className="btn btn-warning">Edit Movie</button>
+            )}
           </button>
 
           {this.state.showUpdateForm ? <UpdateMovie {...this.props} /> : null}
