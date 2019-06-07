@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "concurrently \"nodemon server.js\" \"cd ./client  && npm start \" ",
-    "test": "mocha",
+    "test": "mocha -R nyan",
     "postinstall": "cd client && npm install && npm run build"
   },
   "repository": {
